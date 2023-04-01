@@ -2,84 +2,93 @@
 <html>
 
 <head>
-	<title>Scrolling Page</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			height: 200vh;
-			background-color: #f2f2f2;
-		}
-
-		section {
-			height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			background-color: #fff;
-		}
-
-		button {
-			padding: 20px 40px;
-			background-color: #fff;
-			border-radius: 20px;
-			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-			font-size: 18px;
-			font-weight: bold;
-			color: #333;
-			border: none;
-			cursor: pointer;
-			margin: 20px;
-		}
-
-		.hidden {
-			display: none;
-		}
-	</style>
+    <title>Fintroduction</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-	<section id="screen1">
-		<h1>Screen 1</h1>
-		<p>Content goes here.</p>
-		<button onclick="showSection('screen2')">Go to Screen 2</button>
-		<button onclick="showSection('screen3')">Go to Screen 3</button>
-	</section>
+    <!-- Hero section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Start learning about finance today</h2>
+            <button onclick="showSection('features')">Get Started now</button>
+        </div>
+    </section>
 
-	<section id="screen2">
-		<h1>Screen 2</h1>
-		<p>Content goes here.</p>
-		<button onclick="showSection('screen1')">Go to Screen 1</button>
+    <!-- Features section -->
+    <section id="features">
+        <div class="feature">
+            <h3>Learning Modules</h3>
+            <p>Choose from a variety of specific learning modules.</p>
+            <button onclick="showSection('learning-modules')">Explore Modules</button>
+        </div>
+        <div class="feature">
+            <h3>Blog</h3>
+            <p>Financial News, Tips, and Tricks!</p>
+            <button onclick="showSection('blog')">Our Blog</button>
+        </div>
+        <!-- Add more features here -->
+    </section>
 
-	</section>
-
-	<section id="screen3" class="hidden">
-		<h1>Screen 3</h1>
-		<p>Content goes here.</p>
-		<button onclick="showSection('screen1')">Go to Screen 1</button>
-	</section>
-
-	<script>
-		function showSection(id) {
-			const sections = document.querySelectorAll('section');
-			var scrollTimeout;
-			const section = document.getElementById(id);
-			section.scrollIntoView({ behavior: "smooth" });
-			addEventListener('scroll', function (e) {
-				clearTimeout(scrollTimeout);
-				scrollTimeout = setTimeout(function () {
-					sections.forEach(i => {
-						if (i.id !== 'screen1' && i.id !== id && !i.classList.contains('hidden')) {
-							i.classList.add('hidden');
-							console.log("hiding "+ i);
-						}
-					});
-				}, 10);
-			});
-			section.classList.remove('hidden')
-		}
-	</script>
+    <!-- Learning modules section -->
+        <section id="learning-modules">
+            <h2>Choose a Learning Module</h2>
+            <div class="module" data-status="active" data-index="0">
+                <h3>Introduction to Financial Literacy</h3>
+                <p>In this introductory course, learn the fundamental concepts of financial literacy. This includes
+                    budgeting, debt management, saving and investing, credit scores, insurance, and taxes
+                </p>
+                <button><a href="module1.html">Start module</a></button>
+            </div>
+            <div class="module" data-status="unknown" data-index="1">
+                <h3>Personal Finance</h3>
+                <p>Delve deeper into the topics covered in the introductory course focusing on developing a
+                    comprehensive
+                    financial plan. This course will cover retirement planning, investment strategies, and estate
+                    planning
+                </p>
+                <button><a href="module1.html">Start module</a></button>
+            </div>
+            <div class="module" data-status="unknown" data-index="2">
+                <h3>Financial Analysis</h3>
+                <p>Learn how to analyze financial statements and make informed decisions about investments and financial
+                    management. The course will cover financial ratios, cash flow analysis, and risk assessment</p>
+                <button><a href="module1.html">Start module</a></button>
+            </div>
+            <div class="module" data-status="unknown" data-index="3">
+                <h3>Investment Management</h3>
+                <p> Learn how to design and manage investment portfolios, focusing on maximizing returns and managing
+                    risk.
+                    This course will cover asset allocation, diversification, and portfolio optimization.</p>
+                <button><a href="module1.html">Start module</a></button>
+            </div>
+            <div class="module" data-status="unknown" data-index="4">
+                <h3>Corporate Finance</h3>
+                <p>Learn how to analyze the financial performance of corporations, with a focus on capital budgeting,
+                    financial planning, and risk management. This course will cover financial statement analysis,
+                    capital
+                    structure, and corporate valuation</p>
+                <button><a href="module1.html">Start module</a></button>
+            </div>
+            <div class="module" data-status="unknown" data-index="5">
+                <h3>Financial Markets and Institutions</h3>
+                <p>Learn about the structure and function of financial markets and institutions, such as the role of
+                    banks,
+                    securities markets, and regulatory bodies. This course will cover market efficiency, portfolio
+                    management, and financial regulation</p>
+                <button><a href="module1.html">Start module</a></button>
+            </div>
+            <div class="module-buttons">
+                <button id="left-button" onclick="handleLeftButton()">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+                <button id="right-button" onclick="handleRightButton()">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </div>
+        </section>
 </body>
 
 </html>
