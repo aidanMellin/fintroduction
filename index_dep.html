@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Scrolling Page</title>
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<!-- <header>
+		<div class="logo">
+			<img src="path/to/logo.png" alt="Fintroduction logo">
+			<h1 class="brand-name">Fintroduction</h1>
+		</div>
+		<nav class="button-container">
+			<button class="button"><a href="#about-us">About Us</a></button>
+			<button class="button"><a href="#learning-modules">Learning Modules</a></button>
+			<button class="button"><a href="#historical-interpretations">Historical Interpretations</a></button>
+			<button class="button"><a href="#blog">Blog</a></button>
+			<button class="button"><a href="#contact-us">Contact Us</a></button>
+		</nav>
+	</header> -->
+
+	<section id="screen1">
+		<h1>Screen 1</h1>
+		<p>Content goes here.</p>
+		<button onclick="showSection('screen2')">Go to Screen 2</button>
+		<button onclick="showSection('screen3')">Go to Screen 3</button>
+	</section>
+
+	<section id="screen2">
+		<h1>Screen 2</h1>
+		<p>Content goes here.</p>
+		<button onclick="showSection('screen1')">Go to Screen 1</button>
+
+	</section>
+
+	<section id="screen3" class="hidden">
+		<h1>Screen 3</h1>
+		<p>Content goes here.</p>
+		<button onclick="showSection('screen1')">Go to Screen 1</button>
+	</section>
+
+	<script>
+		function showSection(id) {
+			const sections = document.querySelectorAll('section');
+			var scrollTimeout;
+			const section = document.getElementById(id);
+			section.scrollIntoView({ behavior: "smooth" });
+			addEventListener('scroll', function (e) {
+				clearTimeout(scrollTimeout);
+				scrollTimeout = setTimeout(function () {
+					sections.forEach(i => {
+						if (i.id !== 'screen1' && i.id !== id && !i.classList.contains('hidden')) {
+							i.classList.add('hidden');
+						}
+					});
+				}, 10);
+			});
+			section.classList.remove('hidden')
+		}
+	</script>
+</body>
+
+</html>
