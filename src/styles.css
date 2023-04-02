@@ -227,6 +227,11 @@ button:active {
         padding-bottom: 0;
     }
 
+    .module>button{
+        transform: translateX(-25%);
+
+    }
+
     .module-buttons {
         transform: translateY(25%);
     }
