@@ -225,8 +225,7 @@ button:active {
         padding-left: 15vmin;
         padding-right: 15vmin;
         padding-bottom: 0;
-        transform: translateX(100%);
-        transform: translateY(50%);
+        margin: auto;
     }
 
     .module>button{
