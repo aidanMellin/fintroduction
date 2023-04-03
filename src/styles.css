@@ -20,7 +20,7 @@ body {
 }
 
 .features {
-    display: grid;
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     padding: 2rem;
@@ -225,6 +225,8 @@ button:active {
         padding-left: 15vmin;
         padding-right: 15vmin;
         padding-bottom: 0;
+        transform: translateX(50%);
+        transform: translateY(50%);
     }
 
     .module>button{
