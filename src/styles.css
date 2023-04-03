@@ -148,7 +148,6 @@ button:active {
         0px 0px 0px 4px white,
         0px 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
-
 .module>p {
     white-space: nowrap;
     /* prevent text from wrapping */
@@ -225,6 +224,9 @@ button:active {
         padding-left: 15vmin;
         padding-right: 15vmin;
         padding-bottom: 0;
+    }
+
+    #learning-module{
         transform: translateX(50%);
         transform: translateY(50%);
     }
