@@ -23,9 +23,6 @@ function HeroSection() {
 }
 
 function FeaturesSection() {
-  var features = {
-    "learning-modules": ["Learning Modules", "Choose from a variety of specific learning modules.", ""]
-  }
   return (
     <section id="features">
       <AddFeature
@@ -105,7 +102,6 @@ function LearningModules() {
         dataStatus="unknown"
         dataIndex="5"
       />
-      
       < ModuleButtons />
     </section>
   );
