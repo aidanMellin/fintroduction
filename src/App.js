@@ -1,5 +1,5 @@
 import './styles.css';
-import React from 'react';
+import React, {useState} from 'react';
 
 function App() {
   return (
@@ -26,16 +26,16 @@ function FeaturesSection() {
   return (
     <section id="features">
       <AddFeature
-        head="Learning Modules"
-        content="Choose from a variety of specific learning modules."
-        buttonContent="Explore Modules" 
-        showSectionVar={"learning-modules"}/>
-      <AddFeature
         head="Blog"
         content="Financial News, Tips, and Tricks!"
-        buttonContent="Our Blog" 
+        buttonContent="Our Blog"
         showSectionVar={"blog"}
-        />
+      />
+      <AddFeature
+        head="Learning Modules"
+        content="Choose from a variety of specific learning modules."
+        buttonContent="Explore Modules"
+        showSectionVar={"learning-modules"} />
     </section>
   );
 }
@@ -107,12 +107,22 @@ function LearningModules() {
   );
 }
 
-function AddModule({ head, content, dataStatus, dataIndex, htmlLink }) {
+function AddModule({ dataStatus, dataIndex, head, content, htmlLink }) {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsActive(!isActive);
+  };
+
   return (
-    <div class="module" data-status={dataStatus} data-index={dataIndex}>
-      <h3>{head}</h3>
-      <p>{content}</p>
-      <button><a href={htmlLink}>Start module</a></button>
+    <div className="module" data-status={dataStatus} data-index={dataIndex}>
+      <h3 className={`dropdown-trigger ${isActive ? 'active' : ''}`} onClick={toggleDropdown}>
+        {head}
+      </h3>
+      <p className={`module-content ${isActive ? 'active' : ''}`}>{content}</p>
+      <button>
+        <a href={htmlLink}>Start module</a>
+      </button>
     </div>
   );
 }
@@ -120,10 +130,10 @@ function AddModule({ head, content, dataStatus, dataIndex, htmlLink }) {
 function ModuleButtons() {
   return (
     <div class="module-buttons">
-      <button id="left-button" onClick={() => handleLeftButton()}>
+      <button id="left-button" onClick={() => handleModuleButtonClicked(-1)}>
         <i class="fa-solid fa-x"></i>
       </button>
-      <button id="right-button" onClick={() => handleRightButton()}>
+      <button id="right-button" onClick={() => handleModuleButtonClicked(1)}>
         <i class="fa-solid fa-heart"></i>
       </button>
     </div>
@@ -132,42 +142,34 @@ function ModuleButtons() {
 
 let activeIndex = 0;
 const groups = document.getElementsByClassName("module");
-const handleLeftButton = () => {
-    const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
 
-    const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
-        nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+function handleModuleButtonClicked(indexProgress) {
+  /**
+   * Handle the left and right button clicks for cycling through modules
+   */
+  const nextIndex = (activeIndex + indexProgress) % groups.length;
+  const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
+    nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
 
+  if (indexProgress < 0) { // Cycle left
     currentGroup.dataset.status = "after";
-
     nextGroup.dataset.status = "becoming-active-from-before";
-
-    setTimeout(() => {
-        nextGroup.dataset.status = "active";
-        activeIndex = nextIndex;
-    });
-}
-
-const handleRightButton = () => {
-    const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
-
-    const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
-        nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
-
+  } else { // Cycle right
     currentGroup.dataset.status = "before";
-
     nextGroup.dataset.status = "becoming-active-from-after";
+  }
 
-    setTimeout(() => {
-        nextGroup.dataset.status = "active";
-        activeIndex = nextIndex;
-    });
+  setTimeout(() => {
+    nextGroup.dataset.status = "active";
+    activeIndex = nextIndex;
+  });
 }
 
 function showSection(id) {
   const section = document.getElementById(id);
   section.scrollIntoView({ behavior: "smooth" });
 }
+
 
 
 export default App;

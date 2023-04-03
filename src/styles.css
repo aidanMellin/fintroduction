@@ -5,6 +5,7 @@ body {
     height: 100vh;
     width: 100vw;
     margin: 0;
+    overflow-x: hidden;
 }
 
 #hero {
@@ -20,7 +21,7 @@ body {
 }
 
 .features {
-    display: grid; 
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     padding: 2rem;
@@ -107,23 +108,24 @@ button:active {
     background-image: url(https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80);
     background-repeat: no-repeat;
     /* padding: 5vh; */
-    display: grid;
-    margin: 0 auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    /* margin: 0 auto; */
     place-items: center;
     text-align: center;
     width: 100vw;
-    box-shadow:
+    /* box-shadow:
         0px 3px 3px rgba(0, 0, 0, 0.25),
         0px 0px 0px 4px white,
-        0px 0px 0px 5px rgba(0, 0, 0, 0.15);
+        0px 0px 0px 5px rgba(0, 0, 0, 0.15); */
 }
 
 #learning-modules>h2 {
     color: white;
     font-size: 3em;
     margin-bottom: 20px;
-    flex-direction: column;
-    justify-content: space-between;
+
     /* padding: 10px; */
     /* border-radius: 5px; */
     /* box-shadow:
@@ -139,7 +141,9 @@ button:active {
     border-radius: 20px;
     width: 30vmin;
     place-items: center;
-    margin: 0 auto;
+    /* margin: 50%; */
+    margin-top: 25%;
+    transform: translateY(-25%);
     position: absolute;
     /* left: 50%; */
     /* transform: translateX(-50%); */
@@ -150,40 +154,8 @@ button:active {
         0px 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
 
-.module>p {
-    /* white-space: nowrap; */
-    /* prevent text from wrapping */
-}
-
-.module[data-status="unknown"] {
-    transform: scale(0);
-    transition: none;
-}
-
-.module[data-status="active"] {
-    transition-delay: 300ms;
-}
-
-.module[data-status="after"] {
-    transform: translateX(50%) scale(0);
-}
-
-.module[data-status="before"] {
-    transform: translateX(-50%) scale(0);
-}
-
-.module[data-status="becoming-active-from-after"] {
-    transform: translateX(50%) scale(0);
-    transition: none;
-}
-
-.module[data-status="becoming-active-from-before"] {
-    transform: translateX(-50%) scale(0);
-    transition: none;
-}
-
 .module-buttons {
-    /* margin-top: 8vmin; */
+    margin-bottom: 8vmin;
     display: flex;
     background-color: white;
     border-radius: 20px;
@@ -191,6 +163,7 @@ button:active {
         0px 3px 3px rgba(0, 0, 0, 0.25),
         0px 0px 0px 4px white,
         0px 0px 0px 5px rgba(0, 0, 0, 0.15);
+    /* transform: translateY(-50%); */
 }
 
 .module-buttons>button {
@@ -214,30 +187,73 @@ button:active {
 
 @media screen and (max-width: 767px) {
     .module {
-        padding-left: 15vmin;
-        padding-right: 15vmin;
+        padding-left: 16.5vmin;
+        padding-right: 16.5vmin;
         padding-bottom: 0;
-        margin: auto;
+        margin-top: 75%;
     }
 
-    .module>button{
+    .module>button {
         transform: translateX(-25%);
     }
 
-    .module-buttons {
+    /* .module-buttons {
         transform: translateY(25%);
-    }
+    } */
 
     .hero-content h2 {
-        font-size: 3vh;
+        font-size: 8vh;
     }
 
     #learning-modules>h2 {
         font-size: 3vh;
     }
+
+    .module-content {
+        display: none;
+    }
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Style the active state of the dropdown */
+.dropdown-trigger.active+.module-content {
+    display: block;
 }
 
 #right-button {
     color: rgb(33, 150, 243);
     border-color: rgb(33, 150, 243);
+}
+
+.module[data-status="unknown"] {
+    transform: scale(0);
+    transition: none;
+    visibility: hidden;
+}
+
+.module[data-status="active"] {
+    transition-delay: 300ms;
+    visibility: visible;
+}
+
+.module[data-status="after"] {
+    transform: translateX(50%) scale(0);
+}
+
+.module[data-status="before"] {
+    transform: translateX(-50%) scale(0);
+}
+
+.module[data-status="becoming-active-from-after"] {
+    transform: translateX(50%) scale(0);
+    transition: none;
+}
+
+.module[data-status="becoming-active-from-before"] {
+    transform: translateX(-50%) scale(0);
+    transition: none;
 }
