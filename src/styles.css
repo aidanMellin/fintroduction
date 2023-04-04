@@ -175,16 +175,21 @@ button:active {
         width: 80vw;
         padding-bottom: 0;
         margin-top: 30%;
+        max-height: 75vh;
     }
 
     .dropdown-trigger.active+.module-content {
-        max-height: 50px;
+        max-height: 75px;
         max-width: fit-content;
         overflow-y: scroll;
     }
+    .dropdown-trigger.active+h3 {
+        padding-top: 2%;
+    }
+
 
     .module-buttons {
-        margin-bottom: 30%;
+        margin-bottom: 10%;
     }
 
     .hero-content h2 {
@@ -193,7 +198,7 @@ button:active {
 
     #learning-modules>h2 {
         font-size: 5vh;
-        padding-top: 10%;
+        padding-top: 2%;
     }
 
     .module-content {
