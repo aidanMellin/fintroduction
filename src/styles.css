@@ -168,17 +168,17 @@ button:active {
     transition: background-color 1s ease;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1000px) {
     .module {
         padding-left: 10px;
         padding-right: 10px;
         width: 80vw;
         padding-bottom: 0;
-        margin-top: 50%;
+        margin-top: 30%;
     }
 
     .dropdown-trigger.active+.module-content {
-        max-height: 100px;
+        max-height: 50px;
         max-width: fit-content;
         overflow-y: scroll;
     }
