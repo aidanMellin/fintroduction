@@ -1,7 +1,20 @@
 import './styles.css';
+import IntroToFinancialLiteracyModule from './pages/IntroToFinancialLiteracy/IntroToFinancialLiteracy.js'
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<LandingPage />} />
+        <Route path='/intro_to_financial_literacy_module' element={<IntroToFinancialLiteracyModule />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function LandingPage() {
   return (
     <>
       <HeroSection />
@@ -51,70 +64,46 @@ function AddFeature({ head, content, showSectionVar, buttonContent }) {
   );
 }
 
-// var module = modules[0];
-
-// function LearningModules() {
-//   return (
-//     <section id="learning-modules">
-//       <h2>Choose a Learning Module</h2>
-//       <div className="module-container">
-//         {/* {modules.map((module, index) => ( */}
-//           <AddModule
-//             key={modIndex}
-//             head={module.head}
-//             content={module.content}
-//             htmlLink={module.htmlLink}
-//             dataStatus={module.dataStatus}
-//             dataIndex={module.dataIndex}
-//           />
-//         {/* ))} */}
-//       </div>
-//       < ModuleButtons />
-//     </section>
-//   );
-// }
-
-
 const modules = [
   {
     head: "Introduction to Financial Literacy",
     content: "In this introductory course, learn the fundamental concepts of financial literacy. This includes budgeting, debt management, saving and investing, credit scores, insurance, and taxes",
-    htmlLink: "into_to_financial_liteacy_module.html",
+    moduleLink: "/intro_to_financial_literacy_module",
     dataStatus: "active",
     dataIndex: "0"
   },
   {
     head: "Personal Finance",
     content: "Delve deeper into the topics covered in the introductory course focusing on developing a comprehensive financial plan. This course will cover retirement planning, investment strategies, and estate planning",
-    htmlLink: "personal_finance_module.html",
+    moduleLink: "/personal_finance_module",
     dataStatus: "unknown",
     dataIndex: "1"
   },
   {
     head: "Financial Analysis",
     content: "Learn how to analyze financial statements and make informed decisions about investments and financial management. The course will cover financial ratios, cash flow analysis, and risk assessment",
-    htmlLink: "financial_analysis_module.html",
+    moduleLink: "/financial_analysis_module",
     dataStatus: "unknown",
     dataIndex: "2"
   },
   {
     head: "Investment Management",
     content: "Learn how to design and manage investment portfolios, focusing on maximizing returns and managing risk. This course will cover asset allocation, diversification, and portfolio optimization",
-    htmlLink: "investment_management_module.html",
+    moduleLink: "/investment_management_module",
     dataStatus: "unknown",
     dataIndex: "3"
   },
   {
     head: "Corporate Finance",
     content: "Learn how to analyze the financial performance of corporations, with a focus on capital budgeting, financial planning, and risk management. This course will cover financial statement analysis, capital structure, and corporate valuation",
-    htmlLink: "corporate_finance_module.html",
+    moduleLink: "/corporate_finance_module",
     dataStatus: "unknown",
     dataIndex: "4"
   },
   {
     head: "Financial Markets and Institutions",
     content: "Learn about the structure and function of financial markets and institutions, such as the role of banks, securities markets, and regulatory bodies. This course will cover market efficiency, portfolio management, and financial regulation",
-    htmlLink: "financial_markets_and_institutions_module.html",
+    moduleLink: "financial_markets_and_institutions_module.html",
     dataStatus: "unknown",
     dataIndex: "5"
   }
@@ -139,7 +128,7 @@ function LearningModules() {
           key={modIndex}
           head={currentModule.head}
           content={currentModule.content}
-          htmlLink={currentModule.htmlLink}
+          moduleLink={currentModule.moduleLink}
           dataStatus={currentModule.dataStatus}
           dataIndex={currentModule.dataIndex}
         />
@@ -149,7 +138,7 @@ function LearningModules() {
   );
 }
 
-function AddModule({ dataStatus, dataIndex, head, content, htmlLink }) {
+function AddModule({ dataStatus, dataIndex, head, content, moduleLink }) {
   const [isActive, setIsActive] = useState(false);
   const [moduleContent, setModuleContent] = useState(content);
 
@@ -168,7 +157,8 @@ function AddModule({ dataStatus, dataIndex, head, content, htmlLink }) {
       </h3>
       <p className={`module-content ${isActive ? 'active' : ''}`}>{moduleContent}</p>
       <button>
-        <a href={htmlLink}>Start module</a>
+        <Link to={moduleLink}>Start module</Link>
+        {/* Start Module */}
       </button>
     </div>
   );
@@ -187,19 +177,6 @@ function ModuleButtons({ handleModuleButtonClicked }) {
     </div>
   );
 }
-
-// function ModuleButtons() {
-//   return (
-//     <div className="module-buttons">
-//       <button id="left-button" onClick={() => handleModuleButtonClicked(-1)}>
-//         <i className="fa-solid fa-x"></i>
-//       </button>
-//       <button id="right-button" onClick={() => handleModuleButtonClicked(1)}>
-//         <i className="fa-solid fa-heart"></i>
-//       </button>
-//     </div>
-//   );
-// }
 
 // let activeIndex = 0;
 // const modLength = modules.length;
