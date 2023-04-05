@@ -1,6 +1,7 @@
-import './styles.css';
+import './homepage.css';
+import './universal-styles.css';
 import IntroToFinancialLiteracyModule from './pages/IntroToFinancialLiteracy/IntroToFinancialLiteracy.js'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -16,11 +17,29 @@ function App() {
 }
 
 function LandingPage() {
+  const backgroundRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (backgroundRef.current) {
+        const scrollPos = window.pageYOffset;
+        backgroundRef.current.style.transform = `translateY(-${scrollPos * 0.5}px)`;
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <HeroSection />
-      <FeaturesSection />
-      <LearningModules />
+      <div className="background-parallax" ref={backgroundRef}></div>
+      <div className="foreground">
+        <HeroSection />
+        <FeaturesSection />
+        <LearningModules />
+      </div>
     </>
   );
 }
@@ -141,12 +160,7 @@ function LearningModules() {
 
 function AddModule({ dataStatus, dataIndex, head, content, moduleLink }) {
   const [isActive, setIsActive] = useState(false);
-  const [moduleContent, setModuleContent] = useState(content);
-
-  useEffect(() => {
-    setModuleContent(content);
-  }, [content]);
-
+  const [width] = useState(window.innerWidth);
   const toggleDropdown = () => {
     setIsActive(!isActive);
   };
@@ -156,12 +170,19 @@ function AddModule({ dataStatus, dataIndex, head, content, moduleLink }) {
       <h3 className={`dropdown-trigger ${isActive ? 'active' : ''}`} onClick={toggleDropdown}>
         {head}
       </h3>
-      <p className={`module-content ${isActive ? 'active' : ''}`}>{moduleContent}</p>
+      {isActive || width > 768 ? (
+        <p className="module-content"  >{content}</p>
+      ) : (
+        <button className={`module-content-button dropdown-trigger ${isActive ? 'active' : ''} `} onClick={toggleDropdown}>
+          Tap for more
+        </button>
+      )}
       <Link to={moduleLink}>
         <button>
           Start Module
         </button>
       </Link>
+      <p className='counter'>{parseInt(dataIndex)+1} / {modules.length}</p>
     </div>
   );
 }
@@ -170,10 +191,10 @@ function ModuleButtons({ handleModuleButtonClicked }) {
   return (
     <div className="module-buttons">
       <button id="left-button" onClick={() => handleModuleButtonClicked(-1)}>
-        <i className="fa-solid fa-x"></i>
+        <p>←</p>
       </button>
       <button id="right-button" onClick={() => handleModuleButtonClicked(1)}>
-        <i className="fa-solid fa-heart"></i>
+        <p>→</p>
       </button>
     </div>
   );
