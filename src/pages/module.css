@@ -1,0 +1,96 @@
+.module-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 10%;
+}
+
+.module-peek {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.module-peek h3 {
+    margin-bottom: 10px;
+}
+
+.module-peek p {
+    margin: 0;
+    padding-left: 20%;
+    position: absolute;
+    flex-grow: 1;
+    margin-right: 10px;
+    white-space: nowrap; /* add this line to prevent text wrapping */
+    text-overflow: ellipsis; /* add this line to add an ellipsis for overflowing text */
+}
+
+.module-peek button {
+    margin-left: 10px;
+    white-space: nowrap; /* add this line to prevent button from wrapping */
+}
+
+
+button {
+    padding: 40px 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+    transition: background-color 1s ease;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+button:hover {
+    color: black;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+}
+
+button:active {
+    color: #555;
+    background-color: #f6f9ff;
+    transform: translateY(1px);
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+@media screen and (max-width: 1000px) {
+    .dropdown-trigger.active+.module-peek {
+        max-height: 75px;
+        max-width: fit-content;
+        overflow-y: scroll;
+    }
+
+    .module-peek{
+        flex-direction: column;
+    }
+
+    .module-peek>p{
+        /* padding-left: 8%; */
+        padding-left: 0%;
+        text-align: center;
+        position: relative;
+    }
+}
+
+.dropdown-trigger {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Style the active state of the dropdown */
+.dropdown-trigger.active+.module-content {
+    display: block;
+}

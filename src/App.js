@@ -7,6 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/fintroduction' element={<LandingPage />} />
         <Route path='/intro_to_financial_literacy_module' element={<IntroToFinancialLiteracyModule />} />
       </Routes>
@@ -156,14 +157,14 @@ function AddModule({ dataStatus, dataIndex, head, content, moduleLink }) {
         {head}
       </h3>
       <p className={`module-content ${isActive ? 'active' : ''}`}>{moduleContent}</p>
-      <button>
-        <Link to={moduleLink}>Start module</Link>
-        {/* Start Module */}
-      </button>
+      <Link to={moduleLink}>
+        <button>
+          Start Module
+        </button>
+      </Link>
     </div>
   );
 }
-
 
 function ModuleButtons({ handleModuleButtonClicked }) {
   return (
