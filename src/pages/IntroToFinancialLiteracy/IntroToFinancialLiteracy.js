@@ -4,6 +4,9 @@ import React, { useState, useEffect, useRef } from 'react';
 
 
 function IntroToFinancialLiteracyModule() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const backgroundRef = useRef(null);
 
     useEffect(() => {

@@ -26,7 +26,7 @@
 .module-peek p {
     margin: 0;
     padding-left: 20%;
-    position: absolute;
+    /* position: absolute; */
     flex-grow: 1;
     margin-right: 10px;
     white-space: nowrap; /* add this line to prevent text wrapping */

@@ -23,7 +23,7 @@ function LandingPage() {
     const handleScroll = () => {
       if (backgroundRef.current) {
         const scrollPos = window.pageYOffset;
-        backgroundRef.current.style.transform = `translateY(-${scrollPos * 0.5}px)`;
+        backgroundRef.current.style.transform = `translateY(${scrollPos * .5}px)`;
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -56,8 +56,33 @@ function HeroSection() {
 }
 
 function FeaturesSection() {
+  const featuresRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (featuresRef.current) {
+        const scrollPos = window.pageYOffset;
+        const featuresTop = featuresRef.current.offsetTop;
+        const featuresHeight = featuresRef.current.offsetHeight;
+        const featuresBottom = featuresTop + featuresHeight;
+
+        if (scrollPos + window.innerHeight > featuresTop && scrollPos < featuresBottom) {
+          featuresRef.current.classList.add('in-view');
+        } else {
+          featuresRef.current.classList.remove('in-view');
+        }
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="features">
+    <section id="features" ref={featuresRef} className="feature-section">
       <AddFeature
         head="Blog"
         content="Financial News, Tips, and Tricks!"
