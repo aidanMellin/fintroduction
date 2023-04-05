@@ -17,25 +17,18 @@ function App() {
 }
 
 function LandingPage() {
-  const backgroundRef = useRef(null);
+  const foregroundRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (backgroundRef.current) {
-        const scrollPos = window.pageYOffset;
-        backgroundRef.current.style.transform = `translateY(${scrollPos * .5}px)`;
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const handleScroll = () => {
+    const foregroundScroll = foregroundRef.current.scrollTop;
+    const parallaxElement = document.querySelector(".background-parallax");
+    parallaxElement.style.transform = `translateY(-${foregroundScroll * 0.5}px)`;
+  };
 
   return (
     <>
-      <div className="background-parallax" ref={backgroundRef}></div>
-      <div className="foreground">
+      <div className="background-parallax"></div>
+      <div className="foreground" ref={foregroundRef} onScroll={handleScroll}>
         <HeroSection />
         <FeaturesSection />
         <LearningModules />
@@ -56,33 +49,8 @@ function HeroSection() {
 }
 
 function FeaturesSection() {
-  const featuresRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (featuresRef.current) {
-        const scrollPos = window.pageYOffset;
-        const featuresTop = featuresRef.current.offsetTop;
-        const featuresHeight = featuresRef.current.offsetHeight;
-        const featuresBottom = featuresTop + featuresHeight;
-
-        if (scrollPos + window.innerHeight > featuresTop && scrollPos < featuresBottom) {
-          featuresRef.current.classList.add('in-view');
-        } else {
-          featuresRef.current.classList.remove('in-view');
-        }
-      }
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <section id="features" ref={featuresRef} className="feature-section">
+    <section id="features">
       <AddFeature
         head="Blog"
         content="Financial News, Tips, and Tricks!"
@@ -207,7 +175,7 @@ function AddModule({ dataStatus, dataIndex, head, content, moduleLink }) {
           Start Module
         </button>
       </Link>
-      <p className='counter'>{parseInt(dataIndex)+1} / {modules.length}</p>
+      <p className='counter'>{parseInt(dataIndex) + 1} / {modules.length}</p>
     </div>
   );
 }

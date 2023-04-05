@@ -1,30 +1,25 @@
-html,
+/* html,
 body {
     height: 100%;
-}
+} */
 
 .background-parallax {
-    background-image: url('fintroduction_background.png');
-    /* background-size: contain;
-    background-position: center;
-    height: 400%;
-    width: 100vw;
-    position: absolute;
-    z-index: -1; */
-
-    background-size: contain;
-    background-repeat: repeat-y;
+    background-image: url("fintroduction_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 200vh;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     z-index: -1;
-    background-attachment: fixed;
-    background-repeat: repeat;
-
+    top: 0;
+    left: 0;
+    transform: translateY(0);
 }
 
 .foreground {
-    background-size: contain;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
     background-color: transparent;
     position: relative;
     z-index: 1;

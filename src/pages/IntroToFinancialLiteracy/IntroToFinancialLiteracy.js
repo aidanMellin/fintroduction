@@ -4,27 +4,17 @@ import React, { useState, useEffect, useRef } from 'react';
 
 
 function IntroToFinancialLiteracyModule() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-    const backgroundRef = useRef(null);
+    const foregroundRef = useRef(null);
+    const handleScroll = () => {
+        const foregroundScroll = foregroundRef.current.scrollTop;
+        const parallaxElement = document.querySelector(".background-parallax");
+        parallaxElement.style.transform = `translateY(-${foregroundScroll * 0.5}px)`;
+    };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (backgroundRef.current) {
-                const scrollPos = window.pageYOffset;
-                backgroundRef.current.style.transform = `translateY(-${scrollPos * 0.5}px)`;
-            }
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     return (
         <>
             <div className="background-parallax"></div>
-            <div className="foreground">
+            <div className="foreground" ref={foregroundRef} onScroll={handleScroll}>
                 <ModuleEntry
                     header="Introduction"
                     content="Introducing Financial Literacy!"
