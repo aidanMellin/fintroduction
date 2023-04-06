@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/fintroduction/static/css/main.b996b137.css",
-    "main.js": "/fintroduction/static/js/main.c8e3271d.js",
+    "main.css": "/fintroduction/static/css/main.dbfc2556.css",
+    "main.js": "/fintroduction/static/js/main.fccc352b.js",
     "static/js/787.b27942fe.chunk.js": "/fintroduction/static/js/787.b27942fe.chunk.js",
+    "static/media/fintroBackgroundDark.png": "/fintroduction/static/media/fintroBackgroundDark.e869c55d5c55fbe8df02.png",
     "static/media/fintroduction_background.png": "/fintroduction/static/media/fintroduction_background.56f898e1aad05b4b5e76.png",
     "index.html": "/fintroduction/index.html",
-    "main.b996b137.css.map": "/fintroduction/static/css/main.b996b137.css.map",
-    "main.c8e3271d.js.map": "/fintroduction/static/js/main.c8e3271d.js.map",
+    "main.dbfc2556.css.map": "/fintroduction/static/css/main.dbfc2556.css.map",
+    "main.fccc352b.js.map": "/fintroduction/static/js/main.fccc352b.js.map",
     "787.b27942fe.chunk.js.map": "/fintroduction/static/js/787.b27942fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b996b137.css",
-    "static/js/main.c8e3271d.js"
+    "static/css/main.dbfc2556.css",
+    "static/js/main.fccc352b.js"
   ]
 }
