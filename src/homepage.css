@@ -86,33 +86,6 @@ section {
     background-color: transparent;
 }
 
-button {
-    padding: 40px 40px;
-    background-color: #fff;
-    border-radius: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    border: none;
-    cursor: pointer;
-    margin: 20px;
-    transition: background-color 1s ease;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
-}
-
-button:hover {
-    color: black;
-    transform: translateY(-1px);
-    box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
-}
-
-button:active {
-    color: #555;
-    background-color: #f6f9ff;
-    transform: translateY(1px);
-    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
-}
-
 .hidden {
     display: none;
 }
@@ -133,7 +106,6 @@ button:active {
 }
 
 #learning-modules>h2 {
-    color: black;
     font-size: 3em;
     margin-bottom: 20px;
 }
@@ -256,6 +228,11 @@ button:active {
 /* Style the active state of the dropdown */
 .dropdown-trigger.active+.module-content {
     display: block;
+}
+
+#blog-section{
+    width: 100vw;
+    height: 100vh;
 }
 
 /* .module[data-status="unknown"] {

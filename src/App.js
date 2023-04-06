@@ -1,6 +1,7 @@
 import './homepage.css';
 import './universal-styles.css';
 import IntroToFinancialLiteracyModule from './pages/IntroToFinancialLiteracy/IntroToFinancialLiteracy.js'
+import useCalculateTotalHeight from './universal-functions.js'
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ function App() {
 }
 
 function LandingPage() {
+  const totalHeight = useCalculateTotalHeight("section");
   const foregroundRef = useRef(null);
 
   const handleScroll = () => {
@@ -27,10 +29,11 @@ function LandingPage() {
 
   return (
     <>
-      <div className="background-parallax"></div>
+      <div className="background-parallax background-height"></div>
       <div className="foreground" ref={foregroundRef} onScroll={handleScroll}>
         <HeroSection />
         <FeaturesSection />
+        <BlogSection />
         <LearningModules />
       </div>
     </>
@@ -55,7 +58,7 @@ function FeaturesSection() {
         head="Blog"
         content="Financial News, Tips, and Tricks!"
         buttonContent="Our Blog"
-        showSectionVar={"blog"}
+        showSectionVar={"blog-section"}
       />
       <AddFeature
         head="Learning Modules"
@@ -191,6 +194,12 @@ function ModuleButtons({ handleModuleButtonClicked }) {
       </button>
     </div>
   );
+}
+
+function BlogSection(){
+  return(
+    <section id='blog-section'><h2>Blog section</h2></section>
+  )
 }
 
 // let activeIndex = 0;
