@@ -7,7 +7,7 @@ function ModuleEntry({ header, content }) {
             <div className="module-peek">
                 <h3>{header}</h3>
                 <p>{content}</p>
-                <button>This is a button</button>
+                <button>Learn more</button>
             </div>
         </div>
     );
