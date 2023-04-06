@@ -18,7 +18,7 @@ function App() {
 }
 
 function LandingPage() {
-  const totalHeight = useCalculateTotalHeight("section");
+  const totalHeight = useCalculateTotalHeight("section", null);
   const foregroundRef = useRef(null);
 
   const handleScroll = () => {

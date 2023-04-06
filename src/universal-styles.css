@@ -1,5 +1,9 @@
-h2{
+h1,h2{
     color: white;
+}
+
+section{
+    width: 100vw;
 }
 
 button {
@@ -49,4 +53,6 @@ button:active {
     background-color: transparent;
     position: relative;
     z-index: 1;
+    align-items: center;
+    text-align: center;
 }

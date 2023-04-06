@@ -55,8 +55,10 @@ const modAndLessons = [
 
 function IntroToFinancialLiteracyModule() {
     const foregroundRef = useRef(null);
-    const totalHeight = useCalculateTotalHeight(".module-entry");
+    const [activeDropdown, setActiveDropdown] = useState(null);
+    const totalHeight = useCalculateTotalHeight(".module-entry", activeDropdown);
 
+    // console.log(`intro ${activeDropdown}`)
     const handleScroll = () => {
         const foregroundScroll = foregroundRef.current.scrollTop;
         const parallaxElement = document.querySelector(".background-parallax");
@@ -67,12 +69,15 @@ function IntroToFinancialLiteracyModule() {
         <>
             <div className="background-parallax background-height"></div>
             <div className="foreground" ref={foregroundRef} onScroll={handleScroll}>
+                <h1>Introduction to Financial Literacy</h1>
                 {modAndLessons.map((module, index) => (
                     <ModuleEntry
                         key={index}
                         header={module.name}
                         content={module.content}
                         subModules={module.lessons}
+                        activeDropdown={activeDropdown}
+                        setActiveDropdown={setActiveDropdown}
                     />
                 ))}
             </div>

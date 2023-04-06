@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 
-function useCalculateTotalHeight(selector) {
+function useCalculateTotalHeight(selector, activeDropdown) {
     const [totalHeight, setTotalHeight] = useState(0);
 
     useEffect(() => {
@@ -10,8 +10,16 @@ function useCalculateTotalHeight(selector) {
             let heightSum = 0;
             allDivs.forEach((div) => {
                 heightSum += div.offsetHeight;
-                heightSum += 2;
+                heightSum += 10;
             });
+
+            if (activeDropdown != null) {
+                const subModules = document.querySelectorAll(".subModule");
+                subModules.forEach((module) => {
+                    heightSum += module.offsetHeight;
+                });
+            }
+
             setTotalHeight(heightSum);
         }
 
@@ -22,7 +30,7 @@ function useCalculateTotalHeight(selector) {
         return () => {
             window.removeEventListener("resize", calculateTotalHeight);
         };
-    }, []);
+    }, [selector, activeDropdown]);
 
     useEffect(() => {
         const styleElement = document.createElement("style");
@@ -36,5 +44,6 @@ function useCalculateTotalHeight(selector) {
 
     return totalHeight;
 }
+
 
 export default useCalculateTotalHeight;
