@@ -2,6 +2,8 @@ import '../../universal-styles.css';
 import useCalculateTotalHeight from '../../universal-functions';
 import ModuleEntry from '../templateModule';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
+import Navbar from '../../navbar';
+
 
 type Module = {
     name: string;
@@ -106,12 +108,13 @@ const IntroToFinancialLiteracyModule: FC = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const totalHeight = useCalculateTotalHeight('.module-entry', activeDropdown);
 
+    const handleScroll = () => {
+        const foregroundScroll = foregroundRef.current?.scrollTop ?? 0;
+        const parallaxElement = document.querySelector(".background-parallax") as HTMLElement;
+        parallaxElement.style.transform = `translateY(-${foregroundScroll * .5}px)`;
+    };
+
     useEffect(() => {
-        const handleScroll = () => {
-            const foregroundScroll = foregroundRef.current?.scrollTop ?? 0;
-            const parallaxElement = document.querySelector('.background-parallax') as HTMLElement;
-            parallaxElement.style.transform = `translateY(-${foregroundScroll * 0.5}px)`;
-        };
         foregroundRef.current?.addEventListener('scroll', handleScroll);
         return () => {
             foregroundRef.current?.removeEventListener('scroll', handleScroll);
@@ -122,6 +125,7 @@ const IntroToFinancialLiteracyModule: FC = () => {
         <>
             <div className="background-parallax background-height"></div>
             <div className="foreground" ref={foregroundRef}>
+                <Navbar />
                 <h1>Introduction to Financial Literacy</h1>
                 {modAndLessons.map((module, index) => (
                     <ModuleEntry
@@ -140,6 +144,3 @@ const IntroToFinancialLiteracyModule: FC = () => {
 };
 
 export default IntroToFinancialLiteracyModule;
-
-
-

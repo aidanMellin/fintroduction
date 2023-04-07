@@ -1,6 +1,7 @@
 import './homepage.css';
 import './universal-styles.css';
 import IntroToFinancialLiteracyModule from "./pages/IntroToFinancialLiteracy/IntroToFinancialLiteracy";
+import Navbar from './navbar';
 import useCalculateTotalHeight from './universal-functions';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, RouteProps } from 'react-router-dom';
@@ -24,7 +25,7 @@ function LandingPage() {
   const handleScroll = () => {
     const foregroundScroll = foregroundRef.current?.scrollTop ?? 0;
     const parallaxElement = document.querySelector(".background-parallax") as HTMLElement;
-    parallaxElement.style.transform = `translateY(-${foregroundScroll * 0.5}px)`;
+    parallaxElement.style.transform = `translateY(-${foregroundScroll * .5}px)`;
   };
 
   useEffect(() => {
@@ -38,6 +39,7 @@ function LandingPage() {
     <>
       <div className="background-parallax background-height"></div>
       <div className="foreground" ref={foregroundRef}>
+        {/* <Navbar /> */}
         <HeroSection />
         <FeaturesSection />
         <BlogSection />
