@@ -1,12 +1,13 @@
-h1,h2{
+h1,
+h2 {
     color: white;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
 
-section{
+section {
     width: 100vw;
 }
 
@@ -37,22 +38,41 @@ button:active {
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 
-.background-parallax {  
+nav {
+    display: flex;
+    /* position: absolute; */
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    z-index: 2;
+}
+
+.nav-left {
+    margin-right: auto;
+}
+
+.nav-right {
+    margin-left: auto;
+}
+
+
+.background-parallax {
     background-image: url("media/fintroBackgroundDark.png");
     background-size: cover;
-    /* background-repeat: repeat-x; */
-    /* height: 200vh; */
     width: 100vw;
+    /* height: 200vh; */
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
-    /* transform: translateY(0); */
+    transform: translateY(0);
 }
 
 .foreground {
-    /* height: 100vh; */
     width: 100vw;
+    height: 100vh;
     overflow-y: scroll;
     background-color: transparent;
     position: relative;

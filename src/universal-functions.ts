@@ -5,11 +5,11 @@ function useCalculateTotalHeight(selector: string, activeDropdown: string | numb
 
     useEffect(() => {
         function calculateTotalHeight() {
+            const vh = window.outerHeight;
             const allDivs = document.querySelectorAll(selector);
-            let heightSum = 0;
+            let heightSum = 200;
             allDivs.forEach((div) => {
                 heightSum += (div as HTMLElement).offsetHeight;
-                heightSum += 10;
             });
 
             if (activeDropdown != null) {
@@ -18,9 +18,11 @@ function useCalculateTotalHeight(selector: string, activeDropdown: string | numb
                     heightSum += (module as HTMLElement).offsetHeight;
                 });
             }
-
-            setTotalHeight(heightSum);
+            
+            const totalHeight = Math.min(heightSum, vh * 2.5);
+            setTotalHeight(totalHeight);
         }
+
 
         calculateTotalHeight();
 
