@@ -2,6 +2,10 @@ h1,h2{
     color: white;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 section{
     width: 100vw;
 }
@@ -33,17 +37,17 @@ button:active {
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 
-.background-parallax {
-    background-image: url("fintroBackgroundDark.png");
+.background-parallax {  
+    background-image: url("media/fintroBackgroundDark.png");
     background-size: cover;
-    background-repeat: repeat-x;
+    /* background-repeat: repeat-x; */
     /* height: 200vh; */
     width: 100vw;
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
-    transform: translateY(0);
+    /* transform: translateY(0); */
 }
 
 .foreground {

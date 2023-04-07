@@ -1,0 +1,130 @@
+.module-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 5%;
+}
+
+.background-parallax-module {
+    background-image: url("../fintroduction_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+}
+
+.module-peek {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-top: 20px;
+    /* margin-bottom: 10px; */
+    width: 100%;
+    box-shadow:
+        0px 3px 3px rgba(0, 0, 0, 0.25),
+        0px 0px 0px 4px white,
+        0px 0px 0px 5px rgba(0, 0, 0, 0.15);
+}
+
+.module-peek h3 {
+    margin-bottom: 10px;
+}
+
+.module-peek p {
+    margin: 0;
+    padding-left: 20%;
+    /* position: absolute; */
+    flex-grow: 1;
+    margin-right: 10px;
+    white-space: nowrap; /* add this line to prevent text wrapping */
+    text-overflow: ellipsis; /* add this line to add an ellipsis for overflowing text */
+}
+
+.module-peek button {
+    margin-left: 10px;
+    white-space: nowrap; /* add this line to prevent button from wrapping */
+}
+
+@media screen and (max-width: 1000px) {
+    .module-peek{
+        flex-direction: column;
+    }
+
+    .module-peek>p{
+        /* padding-left: 8%; */
+        padding-left: 0%;
+        text-align: center;
+        position: relative;
+    }
+
+    .subModule{
+        /* width: 100%; */
+        width: auto;
+    }
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12%;
+    padding-right: 12%;
+    transform-origin: top;
+}
+
+.dropdown.open {
+    animation: slideIn 0.5s;
+}
+
+.dropdown.closed {
+    animation: slideOut 0.5s;
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scaleY(0);
+    }
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+
+.subModule{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    /* width: 100%; */
+    /* width: 50vw; */
+    padding-left: 10px;
+    flex-grow: 1;
+    /* box-shadow:
+        0px 3px 3px rgba(0, 0, 0, 0.25),
+        0px 0px 0px 4px white,
+        0px 0px 0px 5px rgba(0, 0, 0, 0.15); */
+}
+/* 
+.subModule>h3{
+    padding-left: 50px;
+} */
