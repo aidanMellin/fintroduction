@@ -3,7 +3,7 @@ import useCalculateTotalHeight from '../../universal-functions';
 import ModuleEntry from '../templateModule';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
 import Navbar from '../../navbar';
-
+import Chat from '../../Chat/Chat';
 
 type Module = {
     name: string;
@@ -126,6 +126,8 @@ const IntroToFinancialLiteracyModule: FC = () => {
             <div className="background-parallax background-height"></div>
             <div className="foreground" ref={foregroundRef}>
                 <Navbar />
+                <Chat />
+
                 <h1>Introduction to Financial Literacy</h1>
                 {modAndLessons.map((module, index) => (
                     <ModuleEntry

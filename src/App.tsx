@@ -2,6 +2,7 @@ import './homepage.css';
 import './universal-styles.css';
 import IntroToFinancialLiteracyModule from "./pages/IntroToFinancialLiteracy/IntroToFinancialLiteracy";
 import Navbar from './navbar';
+import Chat from './Chat/Chat';
 import useCalculateTotalHeight from './universal-functions';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, RouteProps } from 'react-router-dom';
@@ -39,11 +40,12 @@ function LandingPage() {
     <>
       <div className="background-parallax background-height"></div>
       <div className="foreground" ref={foregroundRef}>
-        {/* <Navbar /> */}
+        <Navbar />
         <HeroSection />
         <FeaturesSection />
         <BlogSection />
         <LearningModules />
+        <Chat />
       </div>
     </>
   );
