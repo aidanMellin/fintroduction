@@ -14,6 +14,7 @@ const App: FC = (): ReactElement => {
         <Route path='/' element={<LandingPage />} />
         <Route path='/fintroduction' element={<LandingPage />} />
         <Route path='/intro_to_financial_literacy_module' element={<IntroToFinancialLiteracyModule />} />
+        <Route path='/about' element={<LandingPage />} />
       </Routes>
     </Router>
   );

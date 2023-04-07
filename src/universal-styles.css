@@ -40,21 +40,24 @@ button:active {
 
 nav {
     display: flex;
-    /* position: absolute; */
+    width: 100%;
+    height: 50px;
     position: fixed;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: #f0f0f0;
     z-index: 2;
+    box-sizing: border-box; /* Add box-sizing property */
 }
 
 .nav-left {
-    margin-right: auto;
+    margin-right: 1rem; /* Add margin-right property */
 }
 
 .nav-right {
     margin-left: auto;
+    max-width: 150px;
 }
 
 
