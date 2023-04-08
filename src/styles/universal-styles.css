@@ -130,7 +130,9 @@ nav {
     }
 
     .nav-left, .nav-right {
-        display: none;
+        display: flex;
+        margin: 0;
+        gap: 8px;
     }
 
     .nav-right {
