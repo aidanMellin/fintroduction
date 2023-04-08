@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-// const OPENAI_API_KEY="test";
+const OPENAI_API_KEY="test";
 const API_URL = 'https://api.openai.com/v1/chat/completions';
 
 interface ChatResponse {
