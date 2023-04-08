@@ -110,3 +110,42 @@ nav {
 .chat-icon:focus {
     outline: none;
 }
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    button {
+        padding: 20px 20px;
+        font-size: 16px;
+        margin: 10px;
+    }
+
+    nav {
+        height: 60px;
+        padding: 0.5rem;
+    }
+
+    .nav-left, .nav-right {
+        display: none;
+    }
+
+    .nav-right {
+        max-width: none;
+    }
+
+    .chat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .foreground > h1 {
+        padding-top: 60px;
+    }
+}
