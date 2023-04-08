@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function useCalculateTotalHeight(selector: string, activeDropdown: string | number | null): number {
+export function useCalculateTotalHeight(selector: string, activeDropdown: string | number | null): number {
     const [totalHeight, setTotalHeight] = useState(0);
 
     useEffect(() => {
@@ -44,6 +44,11 @@ function useCalculateTotalHeight(selector: string, activeDropdown: string | numb
     }, [totalHeight]);
 
     return totalHeight;
+}
+
+export function showSection(id: string) {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
 }
 
 export default useCalculateTotalHeight;

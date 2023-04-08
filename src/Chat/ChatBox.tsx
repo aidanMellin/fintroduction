@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import chatGPT from './chatGPT';
-import './ChatBox.css'
+import '../styles/ChatBox.css'
 
 export interface Message {
     sender: 'user' | 'ai';

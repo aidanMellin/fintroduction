@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
-import './module.css';
+import '../styles/module.css';
 
 interface Props {
   header: string;

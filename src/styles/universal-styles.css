@@ -62,7 +62,7 @@ nav {
 
 
 .background-parallax {
-    background-image: url("media/fintroBackgroundDark.png");
+    background-image: url("../media/fintroBackgroundDark.png");
     background-size: cover;
     width: 100vw;
     /* height: 200vh; */
@@ -82,6 +82,10 @@ nav {
     z-index: 1;
     align-items: center;
     text-align: center;
+}
+
+.foreground>h1{
+    padding-top: 75px;
 }
 
 .chat-integration{

@@ -1,9 +1,9 @@
-import '../../universal-styles.css';
-import useCalculateTotalHeight from '../../universal-functions';
-import ModuleEntry from '../templateModule';
+import '../../../styles/universal-styles.css';
+import useCalculateTotalHeight from '../../../universal-functions';
+import ModuleEntry from '../../templateModule';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
-import Navbar from '../../navbar';
-import Chat from '../../Chat/Chat';
+import Navbar from '../../../navbar';
+import Chat from '../../../Chat/Chat';
 
 type Module = {
     name: string;
@@ -106,7 +106,7 @@ const modAndLessons: Module[] = [
 const IntroToFinancialLiteracyModule: FC = () => {
     const foregroundRef = useRef<HTMLDivElement>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const totalHeight = useCalculateTotalHeight('.module-entry', activeDropdown);
+    useCalculateTotalHeight('.module-entry', activeDropdown);
 
     const handleScroll = () => {
         const foregroundScroll = foregroundRef.current?.scrollTop ?? 0;
