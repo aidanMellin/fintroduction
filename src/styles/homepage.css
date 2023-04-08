@@ -202,7 +202,6 @@ section {
         padding-top: 2%;
     }
 
-
     .module-buttons {
         margin-bottom: 10%;
     }
@@ -220,7 +219,22 @@ section {
         padding-left: 20px;
         padding-right: 20px;
     }
+}
 
+@media screen and (max-width: 600px) {
+    .module {
+        width: 90vw;
+        margin-top: 20%;
+    }
+
+    .hero-content h2 {
+        font-size: 6vh;
+    }
+
+    #learning-modules>h2 {
+        font-size: 4vh;
+        padding-top: 5%;
+    }
 }
 
 .dropdown-trigger {
