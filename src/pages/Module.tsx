@@ -1,10 +1,17 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
 import '../styles/module.css';
+import { Link } from 'react-router-dom';
+
+export type ModuleLesson = {
+  name: string;
+  url: string;
+};
+
 
 interface Props {
   header: string;
   content: string;
-  subModules: string[];
+  subModules: ModuleLesson[];
   activeDropdown: string | null;
   setActiveDropdown: React.Dispatch<React.SetStateAction<string | null>>;
 }
@@ -46,8 +53,8 @@ const ModuleEntry: FC<Props> = ({
       <div className={`dropdown ${dropdownOpen ? 'open' : 'closed'}`}>
         {subModules.map((subMod, index) => (
           <div className="subModule" key={`submodule-${index}`}>
-            <h4>{subMod}</h4>
-            <button>Start Lesson</button>
+            <h4>{subMod.name}</h4>
+            <Link to={subMod.url}><button>Start Lesson</button></Link>
           </div>
         ))}
       </div>

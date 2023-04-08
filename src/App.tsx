@@ -1,6 +1,6 @@
 import './styles/homepage.css';
 import './styles/universal-styles.css';
-import IntroToFinancialLiteracyModule from "./pages/learning/IntroToFinancialLiteracy/IntroToFinancialLiteracy";
+import IntroToFinancialLiteracyModule from "./pages/learning/IntroToFinancialLiteracy";
 import Navbar from './navbar';
 import Chat from './Chat/Chat';
 import useCalculateTotalHeight, {showSection} from './universal-functions';

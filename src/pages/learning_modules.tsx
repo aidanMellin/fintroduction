@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, RouteProps } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 type Module = {
     head: string;
