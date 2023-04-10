@@ -9,14 +9,34 @@ import { BrowserRouter as Router, Routes, Route, Link, RouteProps } from 'react-
 import LearningModules from './pages/learning_modules';
 import FeaturesSection from './pages/features';
 
+type RoutedType = {
+  path: string;
+  element: JSX.Element;
+};
+
+const Routed: RoutedType[] =[
+  {
+    path: '/', element: <LandingPage />
+  },
+  {
+    path: '/fintroduction', element: <LandingPage />
+  },
+  {
+    path:'/intro_to_financial_literacy_module', element: <IntroToFinancialLiteracyModule />
+  },
+  {
+    path:'/about',element:<LandingPage />
+  }
+
+];
+
 const App: FC = (): ReactElement => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/fintroduction' element={<LandingPage />} />
-        <Route path='/intro_to_financial_literacy_module' element={<IntroToFinancialLiteracyModule />} />
-        <Route path='/about' element={<LandingPage />} />
+        {Routed.map((route, index) => (
+          <Route path={route.path} element={route.element} />
+        ))}
       </Routes>
     </Router>
   );
