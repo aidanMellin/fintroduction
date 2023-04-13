@@ -11,14 +11,14 @@ type Module = {
     lessons: ModuleLesson[];
 };
 
-const header = "/intro_to_financial_literacy_module";
+const header = "/fintroduction/intro_to_financial_literacy_module";
 
 const modAndLessons: Module[] = [
     {
         name: 'Introduction',
         content: 'Introducing Financial Literacy!',
         lessons: [
-            { name: 'Overview of the course content', url: `${header}/introduction/overview` },
+            { name: 'Overview of the course content', url: `/fintroduction/test` },
             { name: 'Definition of financial literacy', url: `${header}/introduction/definition` },
             { name: 'Importance of financial literacy', url: `${header}/introduction/importance` },
         ],
