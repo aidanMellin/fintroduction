@@ -36,7 +36,7 @@ export const LessonContent: React.FC<LessonContentProps> = ({ lessons }) => {
                                     )
                                 );
                             })}
-                            <a href="/intro_to_financial_literacy_module/home" className="see-more">
+                            <a href="fintroduction/intro_to_financial_literacy_module/home" className="see-more">
                                 See More
                             </a>
                         </div>

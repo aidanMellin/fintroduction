@@ -3,7 +3,7 @@ import './styles/universal-styles.css';
 import IntroToFinancialLiteracyModule from "./pages/learning/IntroToFinancialLiteracy";
 import Navbar from './navbar';
 import Chat from './Chat/Chat';
-import useCalculateTotalHeight, {showSection} from './universal-functions';
+import useCalculateTotalHeight, { showSection } from './universal-functions';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, RouteProps } from 'react-router-dom';
 import LearningModules from './pages/learning_modules';
@@ -19,7 +19,7 @@ type RoutedType = {
   element: JSX.Element;
 };
 
-const Routed: RoutedType[] =[
+const Routed: RoutedType[] = [
   {
     path: '/', element: <LandingPage />
   },
@@ -27,13 +27,13 @@ const Routed: RoutedType[] =[
     path: '/fintroduction', element: <LandingPage />
   },
   {
-    path:'/fintroduction/intro_to_financial_literacy_module/home', element: <IntroToFinancialLiteracyModule />
+    path: '/fintroduction/intro_to_financial_literacy_module/home', element: <IntroToFinancialLiteracyModule />
   },
   {
-    path:'/fintroduction/about',element:<LandingPage />
+    path: '/fintroduction/about', element: <LandingPage />
   },
   {
-    path:'/fintroduction/test', element: < TestLesson />
+    path: '/fintroduction/test', element: < TestLesson />
   }
 
 ];
@@ -109,6 +109,8 @@ function BlogSection() {
 function TestLesson() {
   return (
     <>
+      <Navbar />
+
       <CssBaseline />
       <LessonPage lesson={Lessons[0]} />
     </>
