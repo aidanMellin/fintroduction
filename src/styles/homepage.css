@@ -21,6 +21,10 @@ body {
     animation: fade-up 1s ease-out forwards;
 }
 
+.hero-content>h2{
+    color:white;
+}
+
 
 @keyframes fade-up {
     from {
@@ -35,6 +39,7 @@ body {
 }
 
 #features {
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -100,20 +105,20 @@ section {
 }
 
 #learning-modules {
-    background-color: transparent;
+    background-color: white;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     place-items: center;
     text-align: center;
     width: 100vw;
 }
-
+/* 
 #learning-modules>h2 {
     font-size: 3em;
     margin-bottom: 20px;
-}
+} */
 
-.module {
+/* .module {
     background-color: white;
     padding-top: 40px;
     padding-left: 10px;
@@ -159,7 +164,7 @@ section {
 }
 
 .module-buttons>button:hover {
-    /* background-color: #bdbdbd; */
+    background-color: #bdbdbd;
     color: #fff;
     color: rgb(33, 150, 243);
     border-color: rgb(33, 150, 243);
@@ -180,10 +185,10 @@ section {
 .module-content.active {
     background-color: white;
     box-shadow: none;
-}
+} */
 
 @media screen and (max-width: 1000px) {
-    .module {
+    /* .module {
         padding-left: 10px;
         padding-right: 10px;
         width: 80vw;
@@ -213,7 +218,7 @@ section {
     #learning-modules>h2 {
         font-size: 5vh;
         padding-top: 2%;
-    }
+    } */
 
     .feature {
         padding-left: 20px;
@@ -231,13 +236,13 @@ section {
         font-size: 6vh;
     }
 
-    #learning-modules>h2 {
+    /* #learning-modules>h2 {
         font-size: 4vh;
         padding-top: 5%;
-    }
+    } */
 }
 
-.dropdown-trigger {
+/* .dropdown-trigger {
     cursor: pointer;
     user-select: none;
 }
@@ -245,11 +250,11 @@ section {
 /* Style the active state of the dropdown */
 .dropdown-trigger.active+.module-content {
     display: block;
-}
+} */
 
 #blog-section{
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 /* .module[data-status="unknown"] {

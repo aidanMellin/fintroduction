@@ -1,0 +1,132 @@
+/* src/components/LessonsLayout.css */
+.lessons-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.lesson {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 66vw;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.lesson-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.lesson-content {
+    display: flex;
+    width: 100%;
+}
+
+.precedence-1-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 33vw;
+    margin-right: 1rem;
+}
+
+.lesson-image {
+    width: 100%;
+    max-width: 33vw;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.articles-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-height: calc(33vw * 1.2);
+    /* Adjust the multiplier based on the aspect ratio of the image */
+    overflow: hidden;
+}
+
+.article {
+    margin-bottom: 1rem;
+}
+
+.article-title {
+    font-weight: bold;
+}
+
+.quick-info {
+    font-size: 0.9rem;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.see-more {
+    font-size: 0.9rem;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Add your existing styles above here */
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .lesson-tabs-container {
+        padding: 10px;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        flex: 1 0 50%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .lessons-layout {
+        width: 100%;
+    }
+
+    .lesson {
+        flex-direction: column;
+    }
+
+    .precedence-1-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lesson-image {
+        max-width: 100%;
+    }
+
+    .article {
+        max-width: 100%;
+    }
+
+    .article-1 {
+        margin-bottom: 10px;
+    }
+
+    .articles-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article-2,
+    .article-3 {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+}

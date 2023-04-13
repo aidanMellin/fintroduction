@@ -1,6 +1,6 @@
 import '../../styles/universal-styles.css';
 import useCalculateTotalHeight from '../../universal-functions';
-import ModuleEntry, { ModuleLesson } from '../Module';
+import ModuleEntry, { ModuleLesson } from '../modules';
 import React, { useState, useEffect, useRef, ReactElement, FC } from 'react';
 import Navbar from '../../navbar';
 import Chat from '../../Chat/Chat';

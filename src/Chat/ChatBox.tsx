@@ -36,7 +36,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
         setChatHistory([...chatHistory, { sender: 'user', text: message }]);
         setMessage('');
 
-        const response = await chatGPT(`User: ${message}\nAI:`);
+        const response = await chatGPT(`${message}`);
         setChatHistory([
             ...chatHistory,
             { sender: 'user', text: message },

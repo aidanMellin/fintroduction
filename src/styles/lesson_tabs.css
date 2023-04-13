@@ -1,0 +1,30 @@
+.lesson-tabs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  margin: 0 5px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.tab.active {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}

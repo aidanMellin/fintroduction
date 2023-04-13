@@ -1,6 +1,6 @@
 h1,
 h2 {
-    color: white;
+    color: black;
 }
 
 body {
@@ -65,7 +65,7 @@ nav {
     background-image: url("../media/fintroBackgroundDark.png");
     background-size: cover;
     width: 100vw;
-    /* height: 200vh; */
+    height: 100vh;
     position: absolute;
     z-index: -1;
     top: 0;

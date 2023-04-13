@@ -62,4 +62,34 @@ const ModuleEntry: FC<Props> = ({
   );
 };
 
+interface CourseModuleProps {
+  title: string;
+  tlDr: string;
+  content: string;
+  prevModule: () => void;
+  nextModule: () => void;
+}
+
+const CourseModule: React.FC<CourseModuleProps> = ({
+  title,
+  tlDr,
+  content,
+  prevModule,
+  nextModule,
+}) => {
+  return (
+    <div className="course-module">
+      <h1>{title}</h1>
+      <h2>TL;DR:</h2>
+      <p>{tlDr}</p>
+      <h2>Body:</h2>
+      <p>{content}</p>
+      <div className="module-navigation">
+        <button onClick={prevModule}>Previous Module</button>
+        <button onClick={nextModule}>Next Module</button>
+      </div>
+    </div>
+  );
+};
+
 export default ModuleEntry;

@@ -9,6 +9,11 @@ import { BrowserRouter as Router, Routes, Route, Link, RouteProps } from 'react-
 import LearningModules from './pages/learning_modules';
 import FeaturesSection from './pages/features';
 
+import Lessons from './pages/lessons_data';
+import LessonTabs from './pages/lessons';
+import { CssBaseline } from '@mui/material';
+import LessonPage from './pages/LessonPage';
+
 type RoutedType = {
   path: string;
   element: JSX.Element;
@@ -22,10 +27,13 @@ const Routed: RoutedType[] =[
     path: '/fintroduction', element: <LandingPage />
   },
   {
-    path:'/intro_to_financial_literacy_module', element: <IntroToFinancialLiteracyModule />
+    path:'/intro_to_financial_literacy_module/home', element: <IntroToFinancialLiteracyModule />
   },
   {
     path:'/about',element:<LandingPage />
+  },
+  {
+    path:'/test', element: < TestLesson />
   }
 
 ];
@@ -61,13 +69,13 @@ function LandingPage() {
 
   return (
     <>
-      <div className="background-parallax background-height"></div>
+      <div className="background-parallax"></div>
       <div className="foreground" ref={foregroundRef}>
         <Navbar />
         <HeroSection />
         <FeaturesSection />
         <BlogSection />
-        <LearningModules />
+        <LessonTabs />
         <Chat />
       </div>
     </>
@@ -95,6 +103,15 @@ function BlogSection() {
     <section id="blog-section">
       <h2>Blog section</h2>
     </section>
+  );
+}
+
+function TestLesson() {
+  return (
+    <>
+      <CssBaseline />
+      <LessonPage lesson={Lessons[0]} />
+    </>
   );
 }
 
