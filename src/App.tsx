@@ -27,10 +27,10 @@ const Routed: RoutedType[] =[
     path: '/fintroduction', element: <LandingPage />
   },
   {
-    path:'/intro_to_financial_literacy_module/home', element: <IntroToFinancialLiteracyModule />
+    path:'/fintroduction/intro_to_financial_literacy_module/home', element: <IntroToFinancialLiteracyModule />
   },
   {
-    path:'/about',element:<LandingPage />
+    path:'/fintroduction/about',element:<LandingPage />
   },
   {
     path:'/fintroduction/test', element: < TestLesson />

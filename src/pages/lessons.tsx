@@ -17,7 +17,7 @@ export const LessonContent: React.FC<LessonContentProps> = ({ lessons }) => {
                     <div className="lesson-content">
                         <div className="precedence-1-wrapper">
                             <img src={lesson.imageLink} alt={lesson.imageCredit} className="lesson-image" />
-                            <a href="/test">
+                            <a href="/fintroduction/test">
                                 <div className="article article-1">
                                     <h2 className="article-title">{lesson.content.find((article) => article.precedence === 1)?.title}</h2>
                                     <p className="quick-info">{lesson.content.find((article) => article.precedence === 1)?.quickInfo}</p>
