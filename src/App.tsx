@@ -33,7 +33,7 @@ const Routed: RoutedType[] =[
     path:'/about',element:<LandingPage />
   },
   {
-    path:'/test', element: < TestLesson />
+    path:'/fintroduction/test', element: < TestLesson />
   }
 
 ];
